@@ -13,7 +13,16 @@ type catData = {
 }
 
 export default async function Quiz() {
-  const imagesResponse = await fetch('https://api.thecatapi.com/v1/images/search?limit=1&order=RAND&has_breeds=1');
+
+  const apiKey = process.env.API_KEY; 
+
+  
+  const imagesResponse = await fetch('https://api.thecatapi.com/v1/images/search?limit=1&order=RAND&has_breeds=1', {
+    method: 'GET',
+    headers: {
+      'x-api-key': apiKey, 
+    },
+  });
 
   const imagesData: catImagesResponse[] = await imagesResponse.json();
 
