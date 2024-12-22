@@ -1,6 +1,7 @@
 import React from "react";
+import Form from 'next/form'
 
-export default function (catData) {
+export default function optionCard(catData) {
   const imageUrl = catData.catData.url;
 
   return (
@@ -14,6 +15,12 @@ export default function (catData) {
           />
         </div>
         <div className="size-full flex items-center justify-center">
+
+        <Form action="/quiz">
+      {'hello'}
+      <input name="query" />
+      <button type="submit">Submit</button>
+    </Form>
           <div className="mx-10">this will be an option</div>
           <div className="mx-10">this will be an option</div>
           <div className="mx-10">this will be an option</div>
