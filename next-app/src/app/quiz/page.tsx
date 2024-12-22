@@ -1,23 +1,23 @@
 import Quizform from "@/components/notuilol/quizform";
 import allBreeds from "@/constants/Breeds";
 
-type catImagesResponse = {
+type CatImagesResponse = {
   id: string;
   url: string;
   width: number;
   height: number;
 };
 
-type catData = {
+export type CatData = {
   id: string;
   url: string;
-  breeds: breed[];
+  breeds: BreedOption[];
 };
 
-type breed = {
+export type BreedOption = {
   id: string;
   name: string;
-}
+};
 
 export default async function Quiz() {
   const apiKey = process.env.API_KEY !;
@@ -32,7 +32,7 @@ export default async function Quiz() {
     }
   );
 
-  const imagesData: catImagesResponse[] = await imagesResponse.json();
+  const imagesData: CatImagesResponse[] = await imagesResponse.json();
 
   const idToInsert = imagesData[0].id;
 
@@ -46,17 +46,16 @@ export default async function Quiz() {
     }
   );
 
-  const catData: catData = await catResponse.json();
-  console.log(catData);
+  const catData: CatData = await catResponse.json();
 
-  const correctBreed: breed = {
+  const correctBreed: BreedOption = {
     name: catData.breeds[0].name,
     id: catData.breeds[0].id,
   };
 
   console.log(correctBreed);
 
-  const incorrectOptions: breed[] = allBreeds
+  const incorrectOptions: BreedOption[] = allBreeds
     .filter(breed => breed.id !== correctBreed.id)
     .toSorted(() => 0.5 - Math.random())
     .slice(0, 3);
@@ -65,8 +64,6 @@ export default async function Quiz() {
     ...incorrectOptions,
     correctBreed,
   ].toSorted(() => 0.5 - Math.random());
-
-  console.log(allOptions);
 
   return (
     <>
@@ -88,7 +85,7 @@ export default async function Quiz() {
 
       </div>
       <div>
-        <Quizform names={catData.name}/>
+        <Quizform breedoptions={allOptions} catId={catData.id}/>
       </div>
     </>
   );

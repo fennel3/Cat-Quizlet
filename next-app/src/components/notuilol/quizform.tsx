@@ -1,35 +1,36 @@
 'use client';
 
-import React from "react";
-import Form from 'next/form'
+import { Fragment } from "react";
+import { type BreedOption } from "@/app/quiz/page";
+import { checkUserAnswer } from "@/actions";
 
-type Option = {
-  name: string,
-  id: string,
-};
 
 type Props = {
-  names: Option[]
+  breedoptions: BreedOption[],
+  catId: string
 }
 
-export default function QuizForm(props: Props) {
-
-
+export default function QuizForm({ breedoptions, catId }: Props) {
   return (
     <>
-
-
-      <Form action="/quiz">
-        {'hello'}
-        <input name="query" />
-        <button type="submit">Submit</button>
-      </Form>
-      <div className="mx-10">this will be an option</div>
-      <div className="mx-10">this will be an option</div>
-      <div className="mx-10">this will be an option</div>
-      <div className="mx-10">this will be an option</div>
-
-
+      <form action={checkUserAnswer}>
+        <input type='hidden' name='cat' value={catId} />
+        {breedoptions.map(breedOption => (
+          <Fragment key={breedOption.id}>
+            <label>
+                <input
+                  type="radio"
+                  name="option"
+                  value={breedOption.id}
+                /> {breedOption.name}
+            </label>
+            <br/>
+          </Fragment>
+        ))}
+      <button type='submit'> Submit </button>
+      </form>
     </>
   );
+
+
 }
