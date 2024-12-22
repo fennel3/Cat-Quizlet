@@ -1,4 +1,4 @@
-[
+export default [
   {
     "name": "Abyssinian",
     "id": "abys"
@@ -267,4 +267,4 @@
     "name": "York Chocolate",
     "id": "ycho"
   }
-]
+] as const;
