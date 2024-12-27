@@ -1,25 +1,31 @@
-'use server';
-
-import { type CatData } from "@/app/quiz/page";
+import { CatData } from "@/app/quiz/page";
 
 export async function checkUserAnswer(formData: FormData) {
-    const apiKey = process.env.API_KEY!;
+  const apiKey = process.env.API_KEY!;
 
-    const catResponse = await fetch(
-        "https://api.thecatapi.com/v1/images/" + formData.get('cat'),
-        {
-          method: "GET",
-          headers: {
-            "x-api-key": apiKey,
-          },
-        }
-      );
+  const catResponse = await fetch(
+    "https://api.thecatapi.com/v1/images/" + formData.get('cat'),
+    {
+      method: "GET",
+      headers: {
+        "x-api-key": apiKey,
+      },
+    }
+  );
 
-      const catData: CatData = await catResponse.json();
+  if (!catResponse.ok) {
+    console.error('Error fetching cat data:', catResponse.status, catResponse.statusText);
+    return { success: false };
+  }
 
-      if(formData.get('option') === catData.breeds[0].id){
-        return {success: true}
+  const catData: CatData = await catResponse.json();
 
-      }
-      return  {success: false}
+  console.log(catData.breeds[0].id)
+  
+
+  if (formData.get('option') === catData.breeds[0].id) {
+    return { success: true };
+  }
+
+  return { success: false };
 }
