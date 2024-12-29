@@ -2,6 +2,8 @@
 
 import { type CatData } from "@/components/quiz/question";
 
+export const dynamic = 'force-dynamic';
+
 export async function checkUserAnswer(formData: FormData) {
     const apiKey = process.env.API_KEY!;
 
@@ -12,6 +14,7 @@ export async function checkUserAnswer(formData: FormData) {
           headers: {
             "x-api-key": apiKey,
           },
+          cache: 'no-cache',
         }
       );
 

@@ -30,6 +30,7 @@ export default async function Question(){
       headers: {
         "x-api-key": apiKey,
       },
+      cache: 'no-cache',
     }
   );
 
@@ -44,6 +45,7 @@ export default async function Question(){
       headers: {
         "x-api-key": apiKey,
       },
+      cache: 'no-cache',
     }
   );
 
