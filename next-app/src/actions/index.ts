@@ -1,6 +1,6 @@
 'use server';
 
-import { type CatData } from "@/app/quiz/page";
+import { type CatData } from "@/components/quiz/question";
 
 export async function checkUserAnswer(formData: FormData) {
     const apiKey = process.env.API_KEY!;
@@ -18,8 +18,8 @@ export async function checkUserAnswer(formData: FormData) {
       const catData: CatData = await catResponse.json();
 
       if(formData.get('option') === catData.breeds[0].id){
-        return {success: true}
+        return true
 
       }
-      return  {success: false}
+      return  false
 }
