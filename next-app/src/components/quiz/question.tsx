@@ -20,6 +20,8 @@ export type BreedOption = {
   name: string;
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Question(){
   const apiKey = process.env.API_KEY !;
 
