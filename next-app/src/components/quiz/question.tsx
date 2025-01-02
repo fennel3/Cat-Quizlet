@@ -1,4 +1,3 @@
-
 import Quizform from "@/components/quiz/form";
 import allBreeds from "@/constants/Breeds";
 
@@ -20,10 +19,10 @@ export type BreedOption = {
   name: string;
 };
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-export default async function Question(){
-  const apiKey = process.env.API_KEY !;
+export default async function Question() {
+  const apiKey = process.env.API_KEY!;
 
   const imagesResponse = await fetch(
     "https://api.thecatapi.com/v1/images/search?limit=1&order=RAND&has_breeds=1",
@@ -32,7 +31,7 @@ export default async function Question(){
       headers: {
         "x-api-key": apiKey,
       },
-      cache: 'no-cache',
+      cache: "no-cache",
     }
   );
 
@@ -47,7 +46,7 @@ export default async function Question(){
       headers: {
         "x-api-key": apiKey,
       },
-      cache: 'no-cache',
+      cache: "no-cache",
     }
   );
 
@@ -61,38 +60,36 @@ export default async function Question(){
   console.log(correctBreed);
 
   const incorrectOptions: BreedOption[] = allBreeds
-    .filter(breed => breed.id !== correctBreed.id)
+    .filter((breed) => breed.id !== correctBreed.id)
     .toSorted(() => 0.5 - Math.random())
     .slice(0, 3);
 
-  const allOptions = [
-    ...incorrectOptions,
-    correctBreed,
-  ].toSorted(() => 0.5 - Math.random());
+  const allOptions = [...incorrectOptions, correctBreed].toSorted(
+    () => 0.5 - Math.random()
+  );
 
-  return(
-    <>
-      <div className="flex items-center justify-center m-10">
-      <h1 className="text-2xl font-bold mb-4">
-        Welcome to the Quiz! Now tell me... What breed is this cat!
-      </h1>
+  return (
+    <div className="flex flex-col items-center justify-center m-10 bg-gray-100">
+  <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 m-8">
+    <h2 className="text-xl font-bold text-gray-700 mb-4">Guess the Breed</h2>
+    <div className="h-96 border-8 border-gray-300 rounded-lg overflow-hidden">
+      <img
+        className="h-full w-full object-cover"
+        src={catData.url}
+        alt="cat image"
+      />
+    </div>
+  </div>
 
-      <div>
-          <div className="size-full flex items-center justify-center">
-            <img
-              className=" justify-center m-10 size-2/6"
-              src={catData.url}
-              alt="cat image"
-            />
-          </div>
-      </div>
-
-      </div>
-      <div>
-        <Quizform breedoptions={allOptions} catId = {catData.id}/>
-      </div>
-    </>
-
-  )
-
+  <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+    <h3 className="text-lg font-semibold text-gray-600 mb-4">
+      Choose the correct breed:
+    </h3>
+    <Quizform
+      breedoptions={allOptions}
+      catId={catData.id}
+    />
+  </div>
+</div>
+  );
 }
