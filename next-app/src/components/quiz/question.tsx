@@ -69,8 +69,8 @@ export default async function Question() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100">
-  <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 m-8 border-8 border-gray-300 rounded-lg">
+    <div className="flex flex-col items-center h-screen bg-gray-100">
+  <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 m-4 border-8 border-gray-300">
     <h2 className="text-xl font-bold text-gray-700 mb-4">Guess the Breed</h2>
     <div className="sm:h-96 h-80 overflow-hidden">
       <img

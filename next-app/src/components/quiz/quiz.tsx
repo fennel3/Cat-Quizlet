@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { type ReactNode, useEffect } from 'react';
-import { useQuizContext } from '@/context/QuizContext';
-import { useRouter } from 'next/navigation';
+import { type ReactNode, useEffect } from "react";
+import { useQuizContext } from "@/context/QuizContext";
+import { useRouter } from "next/navigation";
 
 type Props = {
-  children: ReactNode
+  children: ReactNode;
 };
 
 export default function Quiz({ children }: Props) {
@@ -18,25 +18,23 @@ export default function Quiz({ children }: Props) {
     router.refresh();
   }, [score]);
 
-  if (gameOver){
-    return(
-      <h1>Game over</h1>
-    )
+  if (gameOver) {
+    return <h1>Game over</h1>;
   }
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-gray-700">
-          Welcome to the Quiz!
-            
-            <p>
-            Current Score: {score}
-            </p>
-        </h1>
-      </div>
-      <div>
-        {children} 
+      <div className="flex flex-col h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-center px-4 py-2">
+          <h1 className="text-xl font-bold text-gray-700 text-center">
+            Welcome to the Quiz!
+          </h1>
+          <p className="text-sm text-gray-500 mt-1">Current Score: {score}</p>
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center">
+          {children}
+        </div>
       </div>
     </>
   );
