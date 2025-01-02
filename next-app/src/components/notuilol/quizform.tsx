@@ -32,7 +32,7 @@ export default function QuizForm({
       onAnswerResponse(response);
     } catch (error) {
       console.error("Error checking answer:", error);
-    } finally {
+    }  {
       setIsSubmitting(false); // Reset submitting state to false
     }
   };
