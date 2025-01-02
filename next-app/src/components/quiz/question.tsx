@@ -69,12 +69,12 @@ export default async function Question() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center m-10 bg-gray-100">
-  <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 m-8">
+    <div className="flex flex-col items-center justify-center bg-gray-100">
+  <div className="flex flex-col items-center justify-center bg-white shadow-lg rounded-lg p-6 m-8 border-8 border-gray-300 rounded-lg">
     <h2 className="text-xl font-bold text-gray-700 mb-4">Guess the Breed</h2>
-    <div className="h-96 border-8 border-gray-300 rounded-lg overflow-hidden">
+    <div className="sm:h-96 h-80 overflow-hidden">
       <img
-        className="h-full w-full object-cover"
+        className="h-full w-full sm:object-cover object-contain"
         src={catData.url}
         alt="cat image"
       />
@@ -82,7 +82,7 @@ export default async function Question() {
   </div>
 
   <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
-    <h3 className="text-lg font-semibold text-gray-600 mb-4">
+    <h3 className="text-lg font-semibold text-gray-600 mb-2">
       Choose the correct breed:
     </h3>
     <Quizform

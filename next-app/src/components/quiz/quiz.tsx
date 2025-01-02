@@ -27,12 +27,12 @@ export default function Quiz({ children }: Props) {
   return (
     <>
       <div className="flex items-center justify-center">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold text-gray-700">
           Welcome to the Quiz!
-            <p>
-            Your Score: {score}
-            </p>
             
+            <p>
+            Current Score: {score}
+            </p>
         </h1>
       </div>
       <div>
