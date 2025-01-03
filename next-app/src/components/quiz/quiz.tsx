@@ -3,13 +3,15 @@
 import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
+import { Link } from "lucide-react";
+import { buttonVariants } from "../ui/button";
 
 type Props = {
   children: ReactNode;
 };
 
 export default function Quiz({ children }: Props) {
-  const { score, gameOver } = useQuizContext();
+  const { score, gameOver, setGameOver } = useQuizContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -19,7 +21,14 @@ export default function Quiz({ children }: Props) {
   }, [score]);
 
   if (gameOver) {
-    return <h1>Game over</h1>;
+    return (
+      <>
+      <h1>Game over</h1>
+      <p>Your score was {score}</p>
+      <h1>please try again by refreshing the page!</h1>
+      
+      </>
+    )
   }
 
   return (
@@ -27,7 +36,7 @@ export default function Quiz({ children }: Props) {
       <div className="flex flex-col h-screen bg-gray-100">
         <div className="flex flex-col items-center justify-center px-4 py-2">
           <h1 className="text-xl font-bold text-gray-700 text-center">
-            Welcome to the Quiz!
+            Welcome to the Quiz
           </h1>
           <p className="text-sm text-gray-500 mt-1">Current Score: {score}</p>
         </div>
