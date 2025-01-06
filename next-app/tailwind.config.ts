@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			sans: ["var(--font-autour-one)", "sans-serif"], // Integrate the font variable
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

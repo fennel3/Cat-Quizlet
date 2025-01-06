@@ -20,13 +20,27 @@ export default function Quiz({ children }: Props) {
 
   if (gameOver) {
     return (
-      <>
-      <h1>Game over</h1>
-      <p>Your score was {score}</p>
-      <h1>please try again by refreshing the page!</h1>
-      
-      </>
-    )
+      <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-800 text-white p-6">
+        <div className="bg-gray-900 rounded-lg shadow-lg p-8 max-w-lg text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-red-500">
+            Game Over
+          </h1>
+          <p className="text-xl sm:text-2xl mb-4">
+            Your score was{" "}
+            <span className="font-bold text-yellow-400">{score}</span>
+          </p>
+          <p className="text-base sm:text-lg mb-6 text-gray-400">
+            Don’t give up! Give it another go.
+          </p>
+          <button
+            className="px-6 py-3 bg-blue-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
+            onClick={() => window.location.reload()}
+          >
+            Play Again
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
