@@ -3,15 +3,13 @@
 import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
-import { Link } from "lucide-react";
-import { buttonVariants } from "../ui/Button";
 
 type Props = {
   children: ReactNode;
 };
 
 export default function Quiz({ children }: Props) {
-  const { score, gameOver, setGameOver } = useQuizContext();
+  const { score, gameOver } = useQuizContext();
   const router = useRouter();
 
   useEffect(() => {
