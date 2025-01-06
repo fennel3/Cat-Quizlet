@@ -2,7 +2,7 @@
 
 import { FormEvent, Fragment } from "react";
 import { checkUserAnswer } from "@/actions";
-import { BreedOption } from "./question";
+import { BreedOption } from "./Question";
 import { useQuizContext } from "@/context/QuizContext";
 
 type Props = {

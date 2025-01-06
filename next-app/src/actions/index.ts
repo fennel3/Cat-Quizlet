@@ -1,6 +1,6 @@
 'use server';
 
-import { type CatData } from "@/components/quiz/question";
+import { type CatData } from "@/components/quiz/Question";
 
 export async function checkUserAnswer(formData: FormData) {
     const apiKey = process.env.API_KEY!;

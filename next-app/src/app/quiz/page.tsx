@@ -1,6 +1,6 @@
 
-import Question from "@/components/quiz/question";
-import Quiz from "@/components/quiz/quiz";
+import Question from "@/components/quiz/Question";
+import Quiz from "@/components/quiz/Quiz";
 
 export default function Page() {
   return(

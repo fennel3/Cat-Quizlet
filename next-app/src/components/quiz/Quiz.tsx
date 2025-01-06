@@ -4,7 +4,7 @@ import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
 import { Link } from "lucide-react";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/Button";
 
 type Props = {
   children: ReactNode;

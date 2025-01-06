@@ -1,4 +1,4 @@
-import Quizform from "@/components/quiz/form";
+import Quizform from "@/components/quiz/Form";
 import allBreeds from "@/constants/Breeds";
 
 type CatImagesResponse = {
