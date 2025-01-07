@@ -1,6 +1,5 @@
 import Quizform from "@/components/quiz/Form";
 import allBreeds from "@/constants/Breeds";
-import CorrectCat from "./CorrectCat";
 
 type CatImagesResponse = {
   id: string;
