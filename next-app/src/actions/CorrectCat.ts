@@ -2,11 +2,11 @@
 
 import { type CatData } from "@/components/quiz/Question";
 
-export async function checkUserAnswer(formData: FormData) {
+export async function correctCat() {
     const apiKey = process.env.API_KEY!;
 
     const catResponse = await fetch(
-        "https://api.thecatapi.com/v1/images/" + formData.get('cat'),
+        "https://api.thecatapi.com/v1/images/",
         {
           method: "GET",
           headers: {
@@ -18,9 +18,10 @@ export async function checkUserAnswer(formData: FormData) {
 
       const catData: CatData = await catResponse.json();
 
-      if(formData.get('option') === catData.breeds[0].id){
-        return true
+      const correctBreed = {
+          name: catData.breeds[0].name,
+          id: catData.breeds[0].id,
+        };
 
-      }
-      return  false
+      return correctBreed
 }

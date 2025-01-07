@@ -3,6 +3,7 @@
 import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
+import { correctCat } from "@/actions/CorrectCat";
 
 type Props = {
   children: ReactNode;
@@ -17,6 +18,11 @@ export default function Quiz({ children }: Props) {
 
     router.refresh();
   }, [score]);
+
+  // const waitForAnswer = async () => {
+  //   const result = await correctCat();
+  //   console.log(result);
+  // };
 
   if (gameOver) {
     return (
@@ -45,16 +51,23 @@ export default function Quiz({ children }: Props) {
 
   return (
     <>
-      <div className="flex flex-col h-screen bg-gray-100">
-        <div className="flex flex-col items-center justify-center px-4 py-2">
-          <h1 className="text-xl font-bold text-gray-700 text-center">
+      <div className="w-full min-h-screen bg-gray-800">
+        <div className="flex flex-col items-center justify-center px-4 py-4">
+          <h1 className="text-2xl font-bold text-gray-200 text-center">
             Welcome to the Quiz
           </h1>
-          <p className="text-sm text-gray-500 mt-1">Current Score: {score}</p>
+          <p className="text-sm text-gray-500 mt-2">Current Score: {score}</p>
         </div>
 
-        <div className="flex-1 flex flex-col items-center justify-center">
-          {children}
+        <div className="flex justify-center">
+          <div className="size-2/3  md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-slate-400 shadow-lg rounded-lg p-6 border-gray-300">
+            <h2 className="text-xl font-bold text-gray-700 mb-4 text-center">
+              Guess the Breed
+            </h2>
+            <div className="flex flex-col justify-center items-center">
+              {children}
+            </div>
+          </div>
         </div>
       </div>
     </>

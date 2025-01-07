@@ -40,8 +40,8 @@ export default async function Home() {
   const catData: CatData = await catResponse.json();
 
   return (
-    <div className="w-full min-h-screen bg-white shadow-lg rounded-lg p-6 border-8 border-gray-300">
-      <div className="w-full flex flex-col items-center text-gray-700 mb-4">
+    <div className="w-full min-h-screen p-6 min-h-screen bg-gray-800 text-gray-300">
+      <div className="w-full flex flex-col items-center mb-4">
         <div className="w-full max-w-2xl text-center">
           <h1 className="text-2xl sm:text-3xl font-bold">
             About - Cat Quizlet
@@ -67,10 +67,10 @@ export default async function Home() {
         </Link>
       </div>
 
-      <div className="flex flex-col items-center justify-center bg-white ">
+      <div className="flex flex-col items-center justify-center bg-gray-800 ">
         <div className="sm:h-96 h-80 overflow-hidden">
           <img
-            className="h-full w-full sm:object-cover object-contain shadow-lg rounded-lg border-8 border-gray-300"
+            className="h-full w-full sm:object-cover object-contain  shadow-lg rounded-lg border-8 border-gray-300"
             src={catData.url}
             alt="cat image"
           />
