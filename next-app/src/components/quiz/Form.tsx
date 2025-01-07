@@ -4,8 +4,6 @@ import { FormEvent, Fragment } from "react";
 import { checkUserAnswer } from "@/actions/CheckUserAnswer";
 import { BreedOption } from "./Question";
 import { useQuizContext } from "@/context/QuizContext";
-import { correctCat } from "@/actions/CorrectCat";
-import CorrectCat from "./CorrectCat";
 
 type Props = {
   breedoptions: BreedOption[];
@@ -13,7 +11,7 @@ type Props = {
 };
 
 export default function QuizForm({ breedoptions, catId }: Props) {
-  const { setScore, setGameOver, gameOver } = useQuizContext();
+  const { setScore, setGameOver } = useQuizContext();
 
   const handleChange = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

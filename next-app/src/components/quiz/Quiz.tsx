@@ -3,7 +3,6 @@
 import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
-import { correctCat } from "@/actions/CorrectCat";
 
 type Props = {
   children: ReactNode;
