@@ -18,15 +18,10 @@ export default function Quiz({ children }: Props) {
     router.refresh();
   }, [score]);
 
-  // const waitForAnswer = async () => {
-  //   const result = await correctCat();
-  //   console.log(result);
-  // };
-
   if (gameOver) {
     return (
       <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-800 text-white p-6">
-        <div className="bg-gray-900 rounded-lg shadow-lg p-8 max-w-lg text-center">
+        <div className="bg-gray-900 rounded-lg shadow-lg p-6 max-w-lg text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-red-500">
             Game Over
           </h1>
@@ -44,6 +39,12 @@ export default function Quiz({ children }: Props) {
             Play Again
           </button>
         </div>
+        <div className=" flex justify-center p-8"> 
+          <div className="size-3/3 md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-gray-700 shadow-lg rounded-lg p-6 border-gray-300">
+          the correct answer was:
+            {children}
+          </div>
+        </div>
       </div>
     );
   }
@@ -59,7 +60,7 @@ export default function Quiz({ children }: Props) {
         </div>
 
         <div className="flex justify-center">
-          <div className="size-2/3  md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-slate-400 shadow-lg rounded-lg p-6 border-gray-300">
+          <div className="size-2/3 md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-slate-400 shadow-lg rounded-lg p-6 border-gray-300">
             <h2 className="text-xl font-bold text-gray-700 mb-4 text-center">
               Guess the Breed
             </h2>

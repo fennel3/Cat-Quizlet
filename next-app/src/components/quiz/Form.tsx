@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, Fragment } from "react";
+import { FormEvent, Fragment, useEffect, useState } from "react";
 import { checkUserAnswer } from "@/actions/CheckUserAnswer";
 import { BreedOption } from "./Question";
 import { useQuizContext } from "@/context/QuizContext";
+import { correctCat } from "@/actions/CorrectCat";
 
 type Props = {
   breedoptions: BreedOption[];
@@ -11,7 +12,8 @@ type Props = {
 };
 
 export default function QuizForm({ breedoptions, catId }: Props) {
-  const { setScore, setGameOver } = useQuizContext();
+  const { setScore, setGameOver, gameOver } = useQuizContext();
+  const [catAnswer, setCatAnswer] = useState<string | null>(null);
 
   const handleChange = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +25,24 @@ export default function QuizForm({ breedoptions, catId }: Props) {
       setGameOver(true);
     }
   };
+
+  useEffect(() => {
+    if (gameOver) {
+      const fetchCorrectCat = async () => {
+        const cat = await correctCat(catId);
+        setCatAnswer(cat);
+      };
+      fetchCorrectCat();
+    }
+  }, [gameOver]);
+
+  if (gameOver) {
+    return (
+      <>
+        <div>{catAnswer}</div>
+      </>
+    );
+  }
 
   return (
     <>
