@@ -69,7 +69,7 @@ export default async function Question() {
   return (
     <>
       <img
-        className="h-full w-full object-cover max-h-[50vh] rounded-lg border-gray-300"
+        className="max-w-s max-h-80 object-cover rounded-lg border-gray-300"
         src={catData.url}
         alt="cat image"
       />

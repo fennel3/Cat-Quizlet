@@ -60,7 +60,7 @@ export default function Quiz({ children }: Props) {
         </div>
 
         <div className="flex justify-center">
-          <div className="size-2/3 md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-slate-400 shadow-lg rounded-lg p-6 border-gray-300">
+          <div className=" flex flex-col max-w-5xl bg-slate-400 shadow-lg rounded-lg p-6 border-gray-300">
             <h2 className="text-xl font-bold text-gray-700 mb-4 text-center">
               Guess the Breed
             </h2>

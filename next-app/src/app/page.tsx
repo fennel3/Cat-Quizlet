@@ -68,9 +68,9 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col items-center justify-center bg-gray-800 ">
-        <div className="sm:h-96 h-80 overflow-hidden">
+        <div>
           <img
-            className="h-full w-full sm:object-cover object-contain  shadow-lg rounded-lg border-8 border-gray-300"
+            className="max-w-s max-h-96 object-cover rounded-lg "
             src={catData.url}
             alt="cat image"
           />
