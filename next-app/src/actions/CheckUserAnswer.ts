@@ -18,9 +18,6 @@ export async function checkUserAnswer(formData: FormData) {
 
       const catData: CatData = await catResponse.json();
 
-      if(formData.get('option') === catData.breeds[0].id){
-        return true
-
-      }
-      return false
+      console.log(catData)
+      return catData
 }

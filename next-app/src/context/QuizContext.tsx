@@ -1,11 +1,12 @@
 // UserContext.tsx
+import { CatAnswer, CatData } from "@/components/quiz/Question";
 import { createContext, useContext, useState, ReactNode, SetStateAction, Dispatch } from "react";
 
 type QuizContextType = {
   score: number
   setScore: Dispatch<SetStateAction<number>>
-  gameOver: boolean
-  setGameOver: Dispatch<SetStateAction<boolean>>
+  catAnswer: CatAnswer
+  setCatAnswer: Dispatch<SetStateAction<CatAnswer>>
 }
 
 type Props = {
@@ -16,10 +17,10 @@ const QuizContext = createContext<QuizContextType | undefined>(undefined);
 
 export const QuizProvider = ({ children }: Props) => {
   const [score, setScore] = useState<number>(0);
-  const [gameOver, setGameOver] = useState<boolean>(false);
+  const [catAnswer, setCatAnswer] = useState<CatAnswer>(null);
 
   return (
-    <QuizContext.Provider value={{ score, setScore, gameOver, setGameOver }}>
+    <QuizContext.Provider value={{ score, setScore, catAnswer, setCatAnswer }}>
       {children}
     </QuizContext.Provider>
   );

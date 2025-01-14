@@ -12,7 +12,13 @@ export type CatData = {
   id: string;
   url: string;
   breeds: BreedOption[];
-};
+}
+
+export type CatAnswer = {
+  id: string;
+  url: string;
+  breeds: BreedOption[];
+} | null;
 
 export type BreedOption = {
   id: string;

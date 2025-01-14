@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function Quiz({ children }: Props) {
-  const { score, gameOver } = useQuizContext();
+  const { score, catAnswer } = useQuizContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Quiz({ children }: Props) {
     router.refresh();
   }, [score]);
 
-  if (gameOver) {
+  if (catAnswer) {
     return (
       <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-800 text-white p-6">
         <div className="bg-gray-900 rounded-lg shadow-lg p-6 max-w-lg text-center">
@@ -39,10 +39,14 @@ export default function Quiz({ children }: Props) {
             Play Again
           </button>
         </div>
-        <div className=" flex justify-center p-8"> 
-          <div className="size-3/3 md:size-2/5 lg:size-1/3 flex flex-col max-w-5xl bg-gray-700 shadow-lg rounded-lg p-6 border-gray-300">
-          the correct answer was:
-            {children}
+        <div className=" flex justify-center p-8">
+          <div className="flex flex-col justify-center items-center max-w-5xl bg-gray-700 shadow-lg rounded-lg p-6 border-gray-300">
+            the correct answer was: {catAnswer.breeds[0].name}
+          <img
+            className="mt-7 max-w-s max-h-80 object-cover rounded-lg border-gray-300"
+            src={catAnswer.url}
+            alt="cat image"
+          />
           </div>
         </div>
       </div>
