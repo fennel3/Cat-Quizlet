@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function Quiz({ children }: Props) {
-  const { score, catAnswer } = useQuizContext();
+  const { score, gameover } = useQuizContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -19,11 +19,8 @@ export default function Quiz({ children }: Props) {
     router.refresh();
   }, [score]);
 
-  if (catAnswer) {
-    return(
-
-      <GameOver/>
-    )
+  if (gameover) {
+    return <GameOver />;
   }
 
   return (

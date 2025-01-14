@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function QuizForm({ breedoptions, catId }: Props) {
-  const { setScore, catAnswer, setCatAnswer } = useQuizContext();
+  const { setScore, catAnswer, setCatAnswer, setGameover } = useQuizContext();
 
   const handleChange = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ export default function QuizForm({ breedoptions, catId }: Props) {
       setScore((previousValue) => previousValue + 1);
     } else {
       setCatAnswer(catData);
+      setGameover(true)
     }
   };
 

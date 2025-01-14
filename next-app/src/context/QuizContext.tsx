@@ -7,6 +7,8 @@ type QuizContextType = {
   setScore: Dispatch<SetStateAction<number>>
   catAnswer: CatAnswer
   setCatAnswer: Dispatch<SetStateAction<CatAnswer>>
+  gameover: boolean;
+  setGameover: (status: boolean) => void;
 }
 
 type Props = {
@@ -18,9 +20,10 @@ const QuizContext = createContext<QuizContextType | undefined>(undefined);
 export const QuizProvider = ({ children }: Props) => {
   const [score, setScore] = useState<number>(0);
   const [catAnswer, setCatAnswer] = useState<CatAnswer>(null);
+  const [gameover, setGameover] = useState<boolean>(false);
 
   return (
-    <QuizContext.Provider value={{ score, setScore, catAnswer, setCatAnswer }}>
+    <QuizContext.Provider value={{ score, setScore, catAnswer, setCatAnswer, gameover, setGameover }}>
       {children}
     </QuizContext.Provider>
   );

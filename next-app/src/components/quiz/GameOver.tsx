@@ -3,7 +3,6 @@ import { useQuizContext } from "@/context/QuizContext";
 export default function GameOver() {
   const { score, catAnswer } = useQuizContext();
   if (catAnswer) {
-    <GameOver />;
     return (
       <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-800 text-white p-6">
         <div className="bg-gray-900 rounded-lg shadow-lg p-6 max-w-lg text-center">
