@@ -1,5 +1,5 @@
 // UserContext.tsx
-import { CatAnswer, CatData } from "@/components/quiz/Question";
+import { CatAnswer } from "@/components/quiz/Question";
 import { createContext, useContext, useState, ReactNode, SetStateAction, Dispatch } from "react";
 
 type QuizContextType = {

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, Fragment, useEffect, useState } from "react";
+import { FormEvent, Fragment } from "react";
 import { BreedOption, CatData } from "./Question";
 import { useQuizContext } from "@/context/QuizContext";
 import { correctCat } from "@/actions/CorrectCat";
@@ -24,8 +24,6 @@ export default function QuizForm({ breedoptions, catId }: Props) {
       setCatAnswer(catData);
     }
   };
-
-  //formData.get('option') === catData.breeds[0].id
 
   if (catAnswer) {
     return (
