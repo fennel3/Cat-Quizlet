@@ -2,6 +2,8 @@ import { useQuizContext } from "@/context/QuizContext";
 
 export default function GameOver() {
   const { score, catAnswer } = useQuizContext();
+
+
   if (catAnswer) {
     return (
       <div className="flex flex-col items-center justify-center w-full min-h-screen bg-gray-800 text-white p-6">
@@ -19,6 +21,7 @@ export default function GameOver() {
           <button
             className="px-6 py-3 bg-blue-600 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition-all"
             onClick={() => window.location.reload()}
+            
           >
             Play Again
           </button>

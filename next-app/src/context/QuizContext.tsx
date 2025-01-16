@@ -9,6 +9,7 @@ type QuizContextType = {
   setCatAnswer: Dispatch<SetStateAction<CatAnswer>>
   gameover: boolean;
   setGameover: (status: boolean) => void;
+  restartGame: () => void;
 }
 
 type Props = {
@@ -22,8 +23,14 @@ export const QuizProvider = ({ children }: Props) => {
   const [catAnswer, setCatAnswer] = useState<CatAnswer>(null);
   const [gameover, setGameover] = useState<boolean>(false);
 
+  const restartGame = () => {
+    window.location.reload()
+    setScore(0);
+    setCatAnswer(null);
+  }
+
   return (
-    <QuizContext.Provider value={{ score, setScore, catAnswer, setCatAnswer, gameover, setGameover }}>
+    <QuizContext.Provider value={{ score, setScore, catAnswer, setCatAnswer, gameover, setGameover, restartGame }}>
       {children}
     </QuizContext.Provider>
   );
