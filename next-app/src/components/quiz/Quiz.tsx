@@ -1,9 +1,10 @@
 "use client";
 
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
 import GameOver from "./GameOver";
+
 
 type Props = {
   children: ReactNode;
@@ -25,6 +26,7 @@ export default function Quiz({ children }: Props) {
 
   return (
     <>
+    
       <div className="w-full min-h-screen bg-gray-800">
         <div className="flex flex-col items-center justify-center px-4 py-4">
           <h1 className="text-2xl font-bold text-gray-200 text-center">

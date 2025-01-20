@@ -12,7 +12,7 @@ export type CatData = {
   id: string;
   url: string;
   breeds: BreedOption[];
-}
+};
 
 export type CatAnswer = {
   id: string;
@@ -79,7 +79,6 @@ export default async function Question() {
         src={catData.url}
         alt="cat image"
       />
-
       <Quizform breedoptions={allOptions} catId={catData.id} />
     </>
   );

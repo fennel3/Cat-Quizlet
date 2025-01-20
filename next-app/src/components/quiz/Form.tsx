@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, Fragment } from "react";
+import { FormEvent, Fragment, useEffect, useState } from "react";
 import { BreedOption, CatData } from "./Question";
 import { useQuizContext } from "@/context/QuizContext";
 import { correctCat } from "@/actions/CorrectCat";
@@ -12,26 +12,29 @@ type Props = {
 
 export default function QuizForm({ breedoptions, catId }: Props) {
   const { setScore, catAnswer, setCatAnswer, setGameover } = useQuizContext();
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = async (e: FormEvent<HTMLFormElement>) => {
+    setSubmitted(true);
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const catData: CatData = await correctCat(formData);
 
-    if (formData.get('option') === catData.breeds[0].id) {
+    if (formData.get("option") === catData.breeds[0].id) {
       setScore((previousValue) => previousValue + 1);
     } else {
       setCatAnswer(catData);
-      setGameover(true)
+      setGameover(true);
     }
+    
   };
 
+  useEffect(() => {
+    setSubmitted(false);
+    }, [catId]);
+
   if (catAnswer) {
-    return (
-      <>
-        
-      </>
-    );
+    return <></>;
   }
 
   return (
@@ -51,6 +54,7 @@ export default function QuizForm({ breedoptions, catId }: Props) {
                     type="radio"
                     name="option"
                     value={breedOption.id}
+                    disabled={submitted}
                   />{" "}
                   {breedOption.name}
                 </label>
@@ -60,8 +64,9 @@ export default function QuizForm({ breedoptions, catId }: Props) {
           <button
             type="submit"
             className="m-3 px-6 py-2 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+            disabled={submitted}
           >
-            Submit
+            {submitted ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>
