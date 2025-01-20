@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useState } from "react";
+import { type ReactNode, useEffect } from "react";
 import { useQuizContext } from "@/context/QuizContext";
 import { useRouter } from "next/navigation";
 import GameOver from "./GameOver";
