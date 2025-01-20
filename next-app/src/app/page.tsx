@@ -71,7 +71,7 @@ export default async function Home() {
         <div>
           <img
             className="max-w-s max-h-96 object-cover rounded-lg "
-            src={catData.url}
+            src="/bogglingquestion.jpg"
             alt="cat image"
           />
         </div>

@@ -1,5 +1,6 @@
 import Quizform from "@/components/quiz/Form";
 import allBreeds from "@/constants/Breeds";
+import Image from "next/image";
 
 type CatImagesResponse = {
   id: string;
@@ -74,10 +75,14 @@ export default async function Question() {
 
   return (
     <>
-      <img
+      <Image
         className="max-w-s max-h-80 object-cover rounded-lg border-gray-300"
         src={catData.url}
         alt="cat image"
+        width={300}
+        height={300}
+        placeholder="blur"
+        blurDataURL="/constants/bogglingquestion.jpg"
       />
       <Quizform breedoptions={allOptions} catId={catData.id} />
     </>
