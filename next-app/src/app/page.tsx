@@ -9,36 +9,7 @@ type CatImagesResponse = {
 };
 
 export default async function Home() {
-  const apiKey = process.env.API_KEY!;
-
-  const imagesResponse = await fetch(
-    "https://api.thecatapi.com/v1/images/search?limit=1&order=RAND&has_breeds=1",
-    {
-      method: "GET",
-      headers: {
-        "x-api-key": apiKey,
-      },
-      cache: "no-cache",
-    }
-  );
-
-  const imagesData: CatImagesResponse[] = await imagesResponse.json();
-
-  const idToInsert = imagesData[0].id;
-
-  const catResponse = await fetch(
-    "https://api.thecatapi.com/v1/images/" + idToInsert,
-    {
-      method: "GET",
-      headers: {
-        "x-api-key": apiKey,
-      },
-      cache: "no-cache",
-    }
-  );
-
-  const catData: CatData = await catResponse.json();
-
+  
   return (
     <div className="w-full min-h-screen p-6 min-h-screen bg-gray-800 text-gray-300">
       <div className="w-full flex flex-col items-center mb-4">
