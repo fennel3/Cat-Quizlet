@@ -1,13 +1,5 @@
 import Link from "next/link";
 
-type CatData = {
-  url: string;
-};
-
-type CatImagesResponse = {
-  id: string;
-};
-
 export default async function Home() {
   
   return (
