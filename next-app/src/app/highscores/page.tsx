@@ -13,7 +13,7 @@ async function getHighscores() {
   const connection = mysql.createPool(connectionParams);
 
   try {
-    const [results] = await connection.query("SELECT * FROM user_details");
+    const [results] = await connection.query("SELECT * FROM user_details"); //update with 10 limiting query
     return results as users;
   } catch (e) {
     throw e;
