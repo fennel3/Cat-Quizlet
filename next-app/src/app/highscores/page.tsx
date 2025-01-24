@@ -32,7 +32,7 @@ export default async function Highscores() {
     console.error(e);
     return (
       <div className="w-full min-h-screen p-6 min-h-screen bg-gray-800 text-gray-300">
-        Looks like the server isn't working, contact Fin!
+        Looks like the server isn&#39;t working, contact Fin!
       </div>
     );
   }
