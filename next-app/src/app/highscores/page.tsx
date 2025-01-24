@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import mysql from "mysql2/promise";
 import { GetDBSettings } from "@/sharedCode/common";
 import Link from "next/link";
@@ -58,7 +57,7 @@ export default async function Highscores() {
             {users.map((user) => {
               return (
                 <div>
-                  <p className="py-2" key={user.id}>{user.username}</p>{" "}
+                  <p className="py-2" key={user.username}>{user.username}</p>{" "}
                 </div>
               );
             })}
@@ -71,7 +70,7 @@ export default async function Highscores() {
             {users.map((user) => {
               return (
                 <div>
-                  <p className="py-2" key={user.id}>{user.score}</p>{" "}
+                  <p className="py-2" key={user.score}>{user.score}</p>{" "}
                 </div>
               );
             })}
