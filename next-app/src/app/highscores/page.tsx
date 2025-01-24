@@ -27,10 +27,12 @@ export default async function Highscores() {
 
   try {
     users = await getHighscores();
-  } catch (e) {
+  } 
+  catch (e) {
+    console.error(e);
     return (
       <div className="w-full min-h-screen p-6 min-h-screen bg-gray-800 text-gray-300">
-        Looks like the server isnt working, contact Fin!
+        Looks like the server isn't working, contact Fin!
       </div>
     );
   }
@@ -56,8 +58,8 @@ export default async function Highscores() {
           <div className="pt-6">
             {users.map((user) => {
               return (
-                <div>
-                  <p className="py-2" key={user.username}>{user.username}</p>{" "}
+                <div key={user.id}>
+                  <p className="py-2" >{user.username}</p>{" "}
                 </div>
               );
             })}
@@ -69,8 +71,8 @@ export default async function Highscores() {
           <div className="pt-6">
             {users.map((user) => {
               return (
-                <div>
-                  <p className="py-2" key={user.score}>{user.score}</p>{" "}
+                <div key={user.id}>
+                  <p className="py-2">{user.score}</p>{" "}
                 </div>
               );
             })}
