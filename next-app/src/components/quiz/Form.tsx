@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function QuizForm({ breedoptions, catId }: Props) {
-  const { setScore, catAnswer, setCatAnswer, setGameover } = useQuizContext();
+  const { setScore, setCatAnswer, setGameover } = useQuizContext();
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = async (e: FormEvent<HTMLFormElement>) => {
@@ -32,10 +32,6 @@ export default function QuizForm({ breedoptions, catId }: Props) {
   useEffect(() => {
     setSubmitted(false);
     }, [catId]);
-
-  if (catAnswer) {
-    return <></>;
-  }
 
   return (
     <>

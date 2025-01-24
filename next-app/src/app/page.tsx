@@ -30,7 +30,7 @@ export default async function Home() {
         </Link>
         <Link href="/highscores">
           <button className="m-3 px-4 py-2 bg-gray-600 text-white text-sm sm:text-base font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-            View highscores
+            VIEW HIGHSCORES
           </button>
         </Link>
       </div>
