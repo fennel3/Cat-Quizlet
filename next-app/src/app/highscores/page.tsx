@@ -8,6 +8,8 @@ type users = {
   score: number;
 }[];
 
+export const dynamic = "force-dynamic";
+
 async function getHighscores() {
   const connectionParams = GetDBSettings();
   const connection = mysql.createPool(connectionParams);
