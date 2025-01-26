@@ -11,7 +11,6 @@ type users = {
 async function getHighscores() {
   const connectionParams = GetDBSettings();
   const connection = mysql.createPool(connectionParams);
-  console.log("Database Host:", process.env.DATABASE_HOST);
 
   try {
     const [results] = await connection.query("SELECT * FROM user_details"); //update with 10 limiting query
