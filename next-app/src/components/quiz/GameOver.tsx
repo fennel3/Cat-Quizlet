@@ -54,6 +54,7 @@ export default function GameOver() {
           className="text-black h-10 rounded-lg text-center"
           placeholder="Enter username"
           disabled={submitted}
+          maxLength={11}
         />
         <input type="hidden" name="score" value={score} disabled={submitted} />
         <button
